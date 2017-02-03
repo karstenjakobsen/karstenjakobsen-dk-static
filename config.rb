@@ -41,7 +41,13 @@ configure :build do
   activate :minify_javascript
     
   # Append a hash to asset urls (make sure to use the url helpers)
-  activate :asset_hash
-  activate :asset_host, :host => '//d2jdljl1d9trdv.cloudfront.net'
+  #activate :asset_hash
+  #activate :asset_host, :host => '//d2jdljl1d9trdv.cloudfront.net'
   
+end
+
+# config.rb
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket                = 'karstenjakobsen.dk'
+  s3_sync.region                = 'eu-central-1'
 end
