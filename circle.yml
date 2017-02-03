@@ -1,8 +1,11 @@
 machine:
   ruby:
     version: 2.3.3 
+compile:
+  override:
+    - bundle exec middleman contentful && bundle exec middleman build --verbose
 deployment:
   production:
     branch: master
     commands:
-      - bundle exec middleman contentful && bundle exec middleman s3_sync
+      - bundle exec middleman s3_sync
