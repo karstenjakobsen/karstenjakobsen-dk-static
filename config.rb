@@ -42,7 +42,10 @@ configure :build do
     
   # Append a hash to asset urls (make sure to use the url helpers)
   #activate :asset_hash
-  activate :asset_host, :host => '//d3q855pvrgxqp0.cloudfront.net'
+  #activate :asset_host, :host => '//d3q855pvrgxqp0.cloudfront.net'
+  set :asset_host do
+    '//d3q855pvrgxqp0.cloudfront.net'
+  end
   
 end
 
