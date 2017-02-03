@@ -54,3 +54,11 @@ activate :s3_sync do |s3_sync|
   s3_sync.bucket                = 'karstenjakobsen.dk'
   s3_sync.region                = 'eu-central-1'
 end
+
+activate :contentful do |f|
+  f.space         = { contentful: '2lxj76fc13on'}
+  f.access_token  = '0684f030e896993e475d81fb4db2b7ed2801cadcee6bb6c26d2eed86f1e8ab42'
+  f.cda_query     = { content_type: 'profile', include: 1 }
+  f.content_types = { profile: 'profile'}
+end
+
