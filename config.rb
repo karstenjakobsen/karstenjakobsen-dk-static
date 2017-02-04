@@ -43,9 +43,6 @@ configure :build do
   # Append a hash to asset urls (make sure to use the url helpers)
   #activate :asset_hash
   #activate :asset_host, :host => '//d3q855pvrgxqp0.cloudfront.net'
-  set :asset_host do
-    '//d3q855pvrgxqp0.cloudfront.net'
-  end
   
 end
 
@@ -61,4 +58,3 @@ activate :contentful do |f|
   f.cda_query     = { content_type: 'profile', include: 1 }
   f.content_types = { profile: 'profile'}
 end
-
