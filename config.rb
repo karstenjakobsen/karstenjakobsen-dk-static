@@ -27,13 +27,6 @@ end
 # Helpers
 ###
 
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
-
 # Build-specific configuration
 configure :build do
   
@@ -58,3 +51,12 @@ activate :contentful do |f|
   f.cda_query     = { content_type: 'profile', include: 1 }
   f.content_types = { profile: 'profile'}
 end
+
+# https://rossta.net/blog/using-webpack-with-middleman.html
+activate :external_pipeline,
+  name: :webpack,
+  command: build? ?
+  "./node_modules/webpack/bin/webpack.js --bail -p" :
+  "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
+  source: ".tmp/dist",
+  latency: 1

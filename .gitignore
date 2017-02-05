@@ -7,6 +7,10 @@
 # Ignore bundler config
 /.bundle
 
+/node_modules
+.contentful-space-hash
+/data
+
 *~
 
 # Ignore the build directory
