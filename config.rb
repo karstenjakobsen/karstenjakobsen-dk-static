@@ -55,8 +55,11 @@ end
 # https://rossta.net/blog/using-webpack-with-middleman.html
 activate :external_pipeline,
   name: :webpack,
-  command: build? ?
+  command: build? ? 
   "./node_modules/webpack/bin/webpack.js --bail -p" :
-  "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
+  server? ?
+  "./node_modules/webpack/bin/webpack.js --watch -d --progress --color" : 
+  "echo 'No pipeline command'",
   source: ".tmp/dist",
   latency: 1
+  # a ? a : b ? c ? c(b) : b : null
