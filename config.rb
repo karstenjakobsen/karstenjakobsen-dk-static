@@ -63,8 +63,8 @@ activate :external_pipeline,
   source: ".tmp/dist",
   latency: 1
   
-data.contentful.profile.each do |elem| 
-  p = elem[1]
-  proxy "/about/#{p.title}.html", "index.html", :locals => { :person_name => p.title }, :ignore => true
-end
+#data.contentful.profile.each do |elem| 
+#  p = elem[1]
+#  proxy "/about/#{p.title}.html", "index.html", :locals => { :person_name => p.title }, :ignore => true
+#end
   
