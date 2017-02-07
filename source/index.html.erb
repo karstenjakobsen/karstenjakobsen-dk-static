@@ -14,6 +14,8 @@ title: Karsten Jakobsen Resumé/CV
     <!-- ############ HEADER ############ -->
     <!-- ################################ -->
 
+	<div id="header"></div>
+
     <section class="o-section o-section--header  t-section  t-section--header">
         <div class="c-header">
 
@@ -21,6 +23,9 @@ title: Karsten Jakobsen Resumé/CV
             <div class="o-section__content-bg  t-section__content"></div>
 
             <div class="o-container">
+
+				<% data.karstenjakobsendk.about.each do | id, about | %>
+
                 <div class="o-section__container">
 
                     <header class="o-section__header  c-header__header  t-section__header">
@@ -28,7 +33,7 @@ title: Karsten Jakobsen Resumé/CV
 
                             <div class="c-header__avatar">
                                 <div class="a-header  c-avatar">
-                                    <img class="c-avatar__img" src="/images/karstenjakobsen-bw.png" alt="">
+                                    <img class="c-avatar__img" src="<%= about.avatar.url %>" alt="">
                                 </div><!-- /c-avatar -->
                             </div><!-- /c-header-avatar -->
 
@@ -44,19 +49,19 @@ title: Karsten Jakobsen Resumé/CV
 
                                     <div class="c-brand">
                                         <h1 class="c-brand__title  t-title">
-                                                <span class="c-brand__sizer">
-                                                    <span class="a-header  c-brand__first-word  t-title__first-word">
-                                                        Karsten
-                                                    </span>
-                                                    <span class="a-header  c-brand__second-word  t-title__second-word">
-                                                        Jakobsen
-                                                    </span>
-                                                </span>
+											<span class="c-brand__sizer">
+												<span class="a-header  c-brand__first-word  t-title__first-word">
+													<%= about.firstName %>
+												</span>
+												<span class="a-header  c-brand__second-word  t-title__second-word">
+													<%= about.lastName %>
+												</span>
+											</span>
                                         </h1>
                                         <h2 class="a-header  c-brand__sub-title  t-sub-title">
-                                                <span class="c-brand__sizer">
-                                                    Backendudvikler &amp; Systemarkitekt
-                                                </span>
+											<span class="c-brand__sizer">
+												<%= about.jobTitle %>
+											</span>
                                         </h2>
                                     </div><!-- /c-brand -->
 
@@ -93,7 +98,7 @@ title: Karsten Jakobsen Resumé/CV
                                             <div class="o-content__body">
                                                 <h4>Adresse</h4>
                                                 <address>
-                                                    Kogsbølle, Fyn
+                                                    <%= about.address %>
                                                 </address>
                                             </div>
                                         </div><!-- /o-content -->
@@ -104,7 +109,7 @@ title: Karsten Jakobsen Resumé/CV
                                             <div class="o-content__body">
                                                 <h4>Telefon</h4>
                                                 <p>
-                                                    +45 31 71 29 29
+                                                    <%= about.telephoneNumber %>
                                                 </p>
                                             </div>
                                         </div><!-- /o-content -->
@@ -117,7 +122,7 @@ title: Karsten Jakobsen Resumé/CV
                                                     <h4>Web</h4>
                                                     <p>
                                                         <span class="t-link-container__item--blended">
-                                                            karstenjakobsen.dk
+                                                            <%= about.website %>
                                                         </span>
                                                     </p>
                                                 </a><!-- /o-link-container -->
@@ -132,7 +137,7 @@ title: Karsten Jakobsen Resumé/CV
                                                     <h4>Email</h4>
                                                     <p>
                                                         <span class="t-link-container__item--blended">
-                                                            karsten@karstenjakobsen.dk
+                                                            <%= about.email %>
                                                         </span>
                                                     </p>
                                                 </a><!-- /o-link-container -->
@@ -148,35 +153,33 @@ title: Karsten Jakobsen Resumé/CV
 
                 </div><!-- /o-section__container -->
 
+				<% end %>
+
             </div><!-- /o-container -->
 
         </div><!-- /c-header -->
     </section><!-- /o-section -->
 
-
-
     <!-- ################################ -->
     <!-- ############ INTRO ############# -->
     <!-- ################################ -->
 
-    <% data.contentful.profile.each do |elem| %>
-    <% p = elem[1] %>
+    <% data.karstenjakobsendk.about.each do | id, about | %>
 
     <section class="o-section  t-section  ">
 
         <div class="o-section__header-bg  t-section__header"></div>
         <div class="o-section__content-bg  t-section__content"></div>
-
         <div class="o-container">
             <div class="o-section__container">
 
                 <header class="o-section__header  t-section__header">
                     <div class="o-content">
                         <h2 class="o-section__heading">
-                            <%= p.title %>
+                            Profil
                         </h2>
                         <div class="o-content__body  o-section__description">
-                            <%= p.header %>
+                            Hvem er jeg?
                         </div>
                     </div>
                 </header><!-- /o-section__header -->
@@ -186,19 +189,18 @@ title: Karsten Jakobsen Resumé/CV
                     <div class="o-content">
                         <div class="c-intro">
                             <div class="o-content__body">
-                                <%= p.description %>
+                                <%= about.profile %>
                             </div>
                         </div>
                     </div>
 
                 </div><!-- /o-section__content -->
-
             </div><!-- /o-section__container -->
         </div><!-- /o-container -->
 
     </section><!-- /o-section -->
 
-     <% end %>
+    <% end %>
 
     <!-- ################################ -->
     <!-- ########## EKSPERTISE ########### -->
@@ -237,7 +239,7 @@ title: Karsten Jakobsen Resumé/CV
                                 <div class="o-media__body  o-content__body">
                                     <h3>Sprog</h3>
                                     <p>
-                                        PHP, NodeJs, Ruby on Rails, C#, Java, SQL, Javascript, HTML5, JQuery
+                                        PHP, NodeJs, Ruby on Rails, C#, Java, SQL, React
                                     </p>
                                 </div>
                             </div><!-- /o-media o-content -->
@@ -334,8 +336,6 @@ title: Karsten Jakobsen Resumé/CV
         </div><!-- /o-container -->
 
     </section><!-- /o-section -->
-
-
 
     <!-- ################################ -->
     <!-- ############ SKILLS ############ -->
@@ -517,8 +517,6 @@ title: Karsten Jakobsen Resumé/CV
 
     </section><!-- /o-section -->
 
-
-
     <!-- ################################ -->
     <!-- ########## EXPERIENCE ########## -->
     <!-- ################################ -->
@@ -546,32 +544,9 @@ title: Karsten Jakobsen Resumé/CV
 
                     <div class="a-experience-timeline  c-timeline  t-border-color">
 
-                        <div class="c-timeline__item">
-                            <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                            <div class="o-content">
-                                <div class="o-grid">
-                                    <div class="o-grid__col-md-5">
-                                        <div class="c-work__timeframe">
-                                            2005 &ndash; I dag
-                                        </div>
-                                        <h3 class="c-work__heading">
-                                            evercall ApS
-                                        </h3>
-                                        <h4 class="c-work__title">
-                                            Systemudvikler og arkitekt
-                                        </h4>
-                                        <div class="c-work__location">
-                                            Odense, Fyn
-                                        </div>
-                                    </div>
-                                    <div class="o-grid__col-md-7">
-                                        <p>
-                                            Fastansat hos evercall ApS. Systemarkitekt og udvikler af projekter indenfor billing, VoIP, MVoIP, VoLTE, mobiltelefoni og IT drift.
-                                        </p>
-                                    </div>
-                                </div><!-- /o-grid -->
-                            </div><!-- /o-content -->
-                        </div><!-- /c-timeline__item -->
+						<% entries = data.karstenjakobsendk.cv.sort_by{ |id, e| e['sortOrder'] } %>
+
+						<% entries.each do | id, cv | %>
 
                         <div class="c-timeline__item">
                             <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
@@ -579,80 +554,28 @@ title: Karsten Jakobsen Resumé/CV
                                 <div class="o-grid">
                                     <div class="o-grid__col-md-5">
                                         <div class="c-work__timeframe">
-                                            2011 &ndash; I dag
+                                            <%= cv.date.strftime('%Y') %>
                                         </div>
                                         <h3 class="c-work__heading">
-                                            Future Banana
+                                            <%= cv.employer %>
                                         </h3>
                                         <h4 class="c-work__title">
-                                            Selvstændig IT konsulent
+                                            <%= cv.jobTitle %>
                                         </h4>
                                         <div class="c-work__location">
-                                            Odense, Fyn
+										 	<%= cv.jobLocation %>
                                         </div>
                                     </div>
                                     <div class="o-grid__col-md-7">
                                         <p>
-                                            Selvejet virksomhed med opgaver inden for rådgiving, udvikling og implementering af IT systemer hos forskellige kunder.
+                                            <%= cv.jobDescription %>
                                         </p>
                                     </div>
                                 </div><!-- /o-grid -->
                             </div><!-- /o-content -->
                         </div><!-- /c-timeline__item -->
 
-                        <div class="c-timeline__item">
-                            <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                            <div class="o-content">
-                                <div class="o-grid">
-                                    <div class="o-grid__col-md-5">
-                                        <div class="c-work__timeframe">
-                                            2001 &ndash; 2002
-                                        </div>
-                                        <h3 class="c-work__heading">
-                                            Berlingske Tidende
-                                        </h3>
-                                        <h4 class="c-work__title">
-                                            Telemarketingkonsulent
-                                        </h4>
-                                        <div class="c-work__location">
-                                            Odense, Fyn
-                                        </div>
-                                    </div>
-                                    <div class="o-grid__col-md-7">
-                                        <p>
-                                            Deltidsjob som telemarketingkonsulent hos Berlingske Tidende i Odense
-                                        </p>
-                                    </div>
-                                </div><!-- /o-grid -->
-                            </div><!-- /o-content -->
-                        </div><!-- /c-timeline__item -->
-
-                        <div class="c-timeline__item">
-                            <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                            <div class="o-content">
-                                <div class="o-grid">
-                                    <div class="o-grid__col-md-5">
-                                        <div class="c-work__timeframe">
-                                            2001 &ndash; 2003
-                                        </div>
-                                        <h3 class="c-work__heading">
-                                            Ingram Micro A/S
-                                        </h3>
-                                        <h4 class="c-work__title">
-                                            Konfigurationstekniker
-                                        </h4>
-                                        <div class="c-work__location">
-                                            Greve, Sjælland
-                                        </div>
-                                    </div>
-                                    <div class="o-grid__col-md-7">
-                                        <p>
-                                            Fuldtidsjob som konfigurationstekniker mellem studier hos Ingram Micro A/S i Greve. Konfigurationsafdelingen klargører store antal af PC'ere til store eller mellemstore virksomheder.
-                                        </p>
-                                    </div>
-                                </div><!-- /o-grid -->
-                            </div><!-- /o-content -->
-                        </div><!-- /c-timeline__item -->
+                        <% end %>
 
                     </div><!-- /c-timeline -->
 
@@ -662,7 +585,6 @@ title: Karsten Jakobsen Resumé/CV
         </div><!-- /o-container -->
 
     </section><!-- /o-section -->
-
 
 
     <!-- ################################ -->

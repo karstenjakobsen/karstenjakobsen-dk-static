@@ -46,10 +46,11 @@ activate :s3_sync do |s3_sync|
 end
 
 activate :contentful do |f|
-  f.space         = { contentful: '2lxj76fc13on'}
-  f.access_token  = '0684f030e896993e475d81fb4db2b7ed2801cadcee6bb6c26d2eed86f1e8ab42'
-  f.cda_query     = { content_type: 'profile', include: 1 }
-  f.content_types = { profile: 'profile'}
+  f.space         	= { karstenjakobsendk: '2lxj76fc13on'}
+  f.access_token  	= '0684f030e896993e475d81fb4db2b7ed2801cadcee6bb6c26d2eed86f1e8ab42'
+  f.cda_query    	= { include: 3, order: 'sys.createdAt' }
+  f.content_types 	= { about: 'about', cv: 'cv' }
+  f.default_locale	= 'da-DK'
 end
 
 # https://rossta.net/blog/using-webpack-with-middleman.html
