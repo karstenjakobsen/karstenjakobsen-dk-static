@@ -1,12 +1,6 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+let React     = require('react');
+let ReactDOM  = require('react-dom');
 
-var Hello = React.createClass({
-  render: function () {
-    return (
-      <div>Hello Kalle!</div>
-    )
-  }
-});
+let Education = require('./components/Education');
 
-ReactDOM.render(<Hello />, document.getElementById('app'));
+ReactDOM.render(<Education someschool="EAL Lillebaelt" />, document.getElementById('education'));
